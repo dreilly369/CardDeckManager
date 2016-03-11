@@ -54,6 +54,24 @@ These are the method descriptions for the class. They should give you a better i
 
 *load_deck(self, String deckfile)* - Loads a deck into a list from a given file. It does not store the deck internally, though it leaves that to your program. Returns a List of strings representing the saved state of a deck of cards in top down ordering. used after a deck is created to maintain synchronicity between to deck files (or a deck file and a physical deck)
 
+## Creating dck files
+This is pretty simple. From the command line just do:
+
+    python CardDeckManager.py -i username.dck
+Now a .dck file exists with the given name. Anyone with a matching setup physcal deck of cards can manually solve the challenges. The deck itself records the state. It is easy to get out of synch because of human error using a single file and physical deck method. That has lead me to explore using two files and programatically keeping them in synch.
+So I can alternately use the commands: 
+
+    python CardDeckManager.py -i username.dck && cp username.dck username-usercopy.dck
+Which creates two copies of the key. I just copy that file to a second machine. Now both machines are in synch.
+
+    python CardDeckManager.py -i username.dck && scp username.dck ssh-login@remote-system:~/username-usercopy.dck
+Which creates the File and immediately passes a copy to a remote machine using th secure copy (scp) program.
+
+Finally, you can call this in a loop from your own script to genrate batches of .dck files at a time.
+
+## Stand alone vs. Import
+using the CardDeckManager as a stand alone app allows you to use it from most server side languages. You can also use it to do maintenance tasks like I mentioned above. If you want to use the application in a stand-alone way but stil lcall it programmatically I recommend cleaning up the debug output some.
+
 ## Work flow for adding a Card Deck Challenger to your Application.
 1. Import CardDeck into your application
 2. Create a .dck file for each identity you want to authenticate
