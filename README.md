@@ -81,6 +81,8 @@ using the CardDeckManager as a stand alone app allows you to use it from most se
 6. compare the response to the expected response
 5. Add calls to your post authentication code to handle saving the new deck state in the even of a successful authentication. A failed login should remove the previous challenge, but leave the deck state uneffected.
 
+## Workflow as a Stand alone Challenger
+Being able to generate challenges from the command line is more of a convenience thing. It prints out 4 cards to be expected and then the challenge string. You can read this output into another program to handle passing the challenge to the user. Currently, this method of challenge generation has a hardcoded Challenge Length of 4. 
 
 ## Workflow as a Client Side Solver
 Since the application has the ability to solve supplied challenges, it can be used in place of a physical deck of cards with a copy of the .dck file on a second system. From the command line you can call:
