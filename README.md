@@ -70,7 +70,7 @@ Which creates the File and immediately passes a copy to a remote machine using t
 Finally, you can call this in a loop from your own script to genrate batches of .dck files at a time.
 
 ## Stand alone vs. Import
-using the CardDeckManager as a stand alone app allows you to use it from most server side languages. You can also use it to do maintenance tasks like I mentioned above. If you want to use the application in a stand-alone way but stil lcall it programmatically I recommend cleaning up the debug output some.
+using the CardDeckManager as a stand alone app allows you to use it from most server side languages. You can also use it to do maintenance tasks like I mentioned above. If you want to use the application in a stand-alone way but stil lcall it programmatically I recommend cleaning up the debug output some. Importing the class into your own Python applications is the most powerful way to use the CardDeckManager. You can use the functions in the main part as a guide to how you might structure your code, but a high level overview is given below.
 
 ## Work flow for adding a Card Deck Challenger to your Application.
 1. Import CardDeck into your application
